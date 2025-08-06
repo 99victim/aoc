@@ -1,18 +1,32 @@
 package com.project.aoc.users;
 
+<<<<<<< Updated upstream
 import java.time.LocalDateTime;
 
+=======
+import com.project.aoc.common.BaseEntity;
+>>>>>>> Stashed changes
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 //회원(사용자 + 통합 관리자) 
 @Entity
 @Table(name="Users")
+<<<<<<< Updated upstream
 public class Users {
+=======
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder
+public class Users extends BaseEntity {
+    /*
+>>>>>>> Stashed changes
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long user_id;
@@ -21,10 +35,10 @@ public class Users {
     private String user_name;
 
     @Column()
-    private String user_email;
+    private String email;
 
     @Column()
-    private String user_password;
+    private String password;
 
     @Column()
     private String user_gender;
@@ -41,6 +55,7 @@ public class Users {
     @Column()
     private String provider_id;
 
+<<<<<<< Updated upstream
     @Column(name = "CREATED_AT")
     private LocalDateTime createdAt;
 
@@ -54,6 +69,12 @@ public class Users {
     private LocalDateTime deletedAt;
 
     @Column(name = " USER_TYPE")
+=======
+    @Column(name = "IS_DELETED")
+    private Boolean isDeleted;
+
+    @Column(name = "USER_TYPE")
+>>>>>>> Stashed changes
     private Boolean user_type;
 
     @Column(name = "USER_STATE")
