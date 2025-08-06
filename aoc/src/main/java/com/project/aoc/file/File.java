@@ -2,6 +2,7 @@ package com.project.aoc.file;
 
 import java.time.LocalDateTime;
 
+import com.project.aoc.common.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,16 +13,18 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = " File")
-public class File {
+@Table(name = "File")
+public class File extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long file_id;
-	
+
+    /*
 	@Column(name = "REVIEW_ID")
 	@ManyToOne
 	@JoinColumn(name = "user_id")
     private Long reviewId;
+    */
 
     @Column()
     private String file_name;
