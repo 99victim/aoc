@@ -1,64 +1,55 @@
 package com.project.aoc.users;
 
-import java.time.LocalDateTime;
-
 import com.project.aoc.common.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+import org.antlr.v4.runtime.misc.NotNull;
 
 //회원(사용자 + 통합 관리자) 
 @Entity
 @Table(name="Users")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder
 public class Users extends BaseEntity {
-    /*
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long user_id;
-	*/
+    @Column(name = "USER_LOGINID")
+    private String userId;
 
-	@Column()
-    private String user_name;
+    @Column(name = "USER_EMAIL")
+    private String email;
 
-    @Column()
-    private String user_email;
+    @Column(name ="USER_PASSWORD")
+    private String password;
 
-    @Column()
-    private String user_password;
+	@Column(name = "user_name")
+    private String userName;
 
-    @Column()
-    private String user_gender;
+    @Column(name = "user_gender")
+    private String userGender;
 
-    @Column()
-    private String user_tel;
+    @Column(name = "user_tel")
+    private String userTel;
 
-    @Column()
-    private String user_birth;
+    @Column(name = "user_birth")
+    private String userBirth;
 
-    @Column()
     private String provider;
 
-    @Column()
-    private String provider_id;
-
-    /*
-    @Column(name = "CREATED_AT")
-    private LocalDateTime createdAt;
-
-    @Column(name = "UPDATED_AT")
-    private LocalDateTime updatedAt;
-    */
+    @Column(name = "provider_id" )
+    private String providerId;
 
     @Column(name = "IS_DELETED")
     private Boolean isDeleted;
-
-    /*
-    @Column(name ="DELETED_AT")
-    private LocalDateTime deletedAt;
-    */
 
     @Column(name = "USER_TYPE")
     private Boolean user_type;
@@ -66,6 +57,4 @@ public class Users extends BaseEntity {
     @Column(name = "USER_STATE")
     private String state;
 
-	
-	
 }
