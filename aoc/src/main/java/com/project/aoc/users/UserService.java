@@ -1,7 +1,6 @@
 package com.project.aoc.users;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,7 +10,7 @@ public class UserService {
 
     public UserResponse register(UserRequest request) {
         Users user = Users.builder()
-                .id(request.getId())
+                .userId(request.getUserId())
                 .email(request.getEmail())
                 .password(request.getPassword())
                 .build();

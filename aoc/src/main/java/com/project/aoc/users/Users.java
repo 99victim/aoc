@@ -1,85 +1,60 @@
 package com.project.aoc.users;
 
-<<<<<<< Updated upstream
-import java.time.LocalDateTime;
-
-=======
 import com.project.aoc.common.BaseEntity;
->>>>>>> Stashed changes
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import org.antlr.v4.runtime.misc.NotNull;
 
 //회원(사용자 + 통합 관리자) 
 @Entity
 @Table(name="Users")
-<<<<<<< Updated upstream
-public class Users {
-=======
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
 public class Users extends BaseEntity {
-    /*
->>>>>>> Stashed changes
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long user_id;
-	
-	@Column()
-    private String user_name;
+    @Column(name = "USER_LOGINID")
+    private String userId;
 
-    @Column()
+    @Column(name = "USER_EMAIL")
     private String email;
 
-    @Column()
+    @Column(name ="USER_PASSWORD")
     private String password;
 
-    @Column()
-    private String user_gender;
+	@Column(name = "user_name")
+    private String userName;
 
-    @Column()
-    private String user_tel;
+    @Column(name = "user_gender")
+    private String userGender;
 
-    @Column()
-    private String user_bitrh;
+    @Column(name = "user_tel")
+    private String userTel;
 
-    @Column()
+    @Column(name = "user_birth")
+    private String userBirth;
+
     private String provider;
 
-    @Column()
-    private String provider_id;
+    @Column(name = "provider_id" )
+    private String providerId;
 
-<<<<<<< Updated upstream
-    @Column(name = "CREATED_AT")
-    private LocalDateTime createdAt;
-
-    @Column(name = "UPDATED_AT")
-    private LocalDateTime updatedAt;
-
-    @Column(name = "IS_DELETED")
-    private Boolean isDeleted;
-
-    @Column(name ="DELETED_AT")
-    private LocalDateTime deletedAt;
-
-    @Column(name = " USER_TYPE")
-=======
     @Column(name = "IS_DELETED")
     private Boolean isDeleted;
 
     @Column(name = "USER_TYPE")
->>>>>>> Stashed changes
     private Boolean user_type;
 
     @Column(name = "USER_STATE")
     private String state;
 
-	
-	
 }

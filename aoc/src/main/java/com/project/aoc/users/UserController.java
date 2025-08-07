@@ -1,6 +1,6 @@
 package com.project.aoc.users;
 
-import jakarta.servlet.ServletResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping("/api/users")
 public class UserController {
+    private final UserService userService;
+
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody UserRequest request, ServletResponse servletResponse) {
-        UserResponse response = UserService.register(request);
+    public ResponseEntity<?> register(@RequestBody @Valid UserRequest request) {
+        UserResponse response = userService.register(request);
 
         return ResponseEntity.ok(response);
     }
